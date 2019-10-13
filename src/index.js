@@ -1,10 +1,26 @@
-import {APP_NAME, hello, Figure } from './myutil'
-import './style.css'
+import {APP_NAME, hello, Figure } from './myutil';
+import './style.css';
+import pic from './images/wings.jpg';
+import data from './sample.json';
+import csv from './sample.csv';
 
 // CSSの適用
 let body = document.getElementsByTagName('body')[0];
 
 body.classList.add('sky');
+
+// 画像ファイルのインポート
+window.addEventListener('DOMContentLoaded', function() {
+  let img = new Image();
+  img.src = pic;
+  document.body.appendChild(img);
+}, false);
+
+// JSONのコンソール出力
+console.log(data[0].title);
+
+// CSVのコンソール出力
+console.log(csv[0][1]);
 
 // 環境変数のテスト
 if (process.env.NODE_ENV === 'development') {
