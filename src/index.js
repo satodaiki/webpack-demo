@@ -3,6 +3,8 @@ import './style.css';
 import pic from './images/wings.jpg';
 import data from './sample.json';
 import csv from './sample.csv';
+import html from './sample.html';
+import xml from './sample.xml';
 
 // CSSの適用
 let body = document.getElementsByTagName('body')[0];
@@ -21,6 +23,14 @@ console.log(data[0].title);
 
 // CSVのコンソール出力
 console.log(csv[0][1]);
+
+// HTMLのコンソール出力
+console.log(html);
+
+// XMLのコンソール出力
+console.log(xml.data.row[0]);
+console.log(xml.data.row[1].$.id); // row要素のid属性を取得
+console.log(xml.data.row[1]._); //row要素の本体テキストを取得
 
 // 環境変数のテスト
 if (process.env.NODE_ENV === 'development') {

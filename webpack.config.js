@@ -45,6 +45,40 @@ module.exports = {
         use: [
           'csv-loader'
         ]
+      },
+      {
+        test: /\.(html)$/,
+        use: {
+          loader: 'html-loader',
+          options: {
+            attrs: ['img:src', ':data-src']
+          }
+        }
+      },
+      {
+        test: /\.xml$/,
+        use: [
+          'xml-loader'
+        ]
+      },
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        // [.babelrc]ファイルに設定は外部化済み
+        // use: [
+        //   {
+        //     loader: 'babel-loader',
+        //     options: {
+        //       presets: [
+        //         [
+        //           'env',
+        //           {'modules': false}
+        //         ]
+        //       ]
+        //     }
+        //   }
+        // ],
+        exclude: /node_modules/
       }
     ]
   }
