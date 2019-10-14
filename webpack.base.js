@@ -4,7 +4,6 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = (env, args) => {
   return {
-    mode: args.mode,
     entry: { // 複数エントリポイントの処理
       main: './src/main.js',
       sub: './src/sub.js'

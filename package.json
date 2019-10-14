@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --mode development --open --config webpack.development.js", // --envオプションでwebpack設定ファイルから値を取得できる(--env hoge -> "hoge", --env.hoge=foo -> "foo", --env.hoge=foo --env.piyo -> {hoge: "foo", piyo: true}, --env.hoge=foo --env.hoge=bar -> {hoge: ["foo", "bar"]})
+    "start": "webpack-dev-server --mode development --open --config webpack.development.js",
     "build": "webpack --mode production --config webpack.production.js"
   },
   "keywords": [],
