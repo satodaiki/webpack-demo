@@ -2,6 +2,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
   mode: 'production', // productionモードにするとoptimization - minimizerを有効化することができる
@@ -23,7 +24,8 @@ module.exports = {
             drop_console: false
           }
         }
-      })
+      }),
+      new OptimizeCSSAssetsPlugin({})
     ],
     splitChunks: {
       name: 'commonlib',
@@ -37,11 +39,11 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader'
-        ]
-        // use: ExtractTextPlugin.extract({ use: 'css-loader' })
+        // use: [
+        //   'style-loader',
+        //   'css-loader'
+        // ]
+        use: ExtractTextPlugin.extract({ use: 'css-loader' })
       },
       {
         test: /\.(gif|png|jpg)$/,
@@ -141,13 +143,11 @@ module.exports = {
       copyright: '2018-2019 YAMADA Yoshihiro'
     }),
     new CleanWebpackPlugin(),
+    new ExtractTextPlugin('style.css'),
   ],
   // インポート時に認識する拡張子
   // 既定は['.js', '.json']のみ
   resolve: {
     extensions: ['.ts', '.js', '.json']
   },
-  // plugins: [
-  //   new ExtractTextPlugin('style.css')
-  // ]
 }
