@@ -1,15 +1,31 @@
 import {APP_NAME, hello, Figure } from './myutil';
 import './style.css';
+import './sky_style.scss';
 import pic from './images/wings.jpg';
 import data from './sample.json';
 import csv from './sample.csv';
 import html from './sample.html';
 import xml from './sample.xml';
+// React関連
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+// TS関連
+import TsUtil from './util';
+
+// React
+ReactDOM.render(<App />, document.getElementById('app'));
+
+// TS
+TsUtil.printTriangle(10, 5)
 
 // CSSの適用
-let body = document.getElementsByTagName('body')[0];
+// let body = document.getElementsByTagName('body')[0];
+// body.classList.add('sky');
 
-body.classList.add('sky');
+// SCSSの適用
+let scssDiv = document.getElementById('scssDiv');
+scssDiv.classList.add('sky');
 
 // 画像ファイルのインポート
 window.addEventListener('DOMContentLoaded', function() {

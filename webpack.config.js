@@ -79,8 +79,21 @@ module.exports = {
         //   }
         // ],
         exclude: /node_modules/
+      },
+      {
+        test: /\.ts$/,
+        use: 'ts-loader'
+      },
+      {
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'] // ローダーは記述の逆順にコンパイルされる
       }
     ]
+  },
+  // インポート時に認識する拡張子
+  // 既定は['.js', '.json']のみ
+  resolve: {
+    extensions: ['.ts', '.js', '.json']
   }
   // plugins: [
   //   new ExtractTextPlugin('style.css')
