@@ -1,4 +1,4 @@
-let message = 'hello webpack';
+const message = 'hello webpack';
 
 export const APP_NAME = '速習Webpack';
 
@@ -8,6 +8,6 @@ export function hello() {
 
 export class Figure {
   static getTriangle(base, height) {
-    return base * height / 2;
+    return (base * height) / 2;
   }
 }

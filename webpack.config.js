@@ -63,7 +63,7 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        loader: 'babel-loader',
+        // loader: 'babel-loader',
         // [.babelrc]ファイルに設定は外部化済み
         // use: [
         //   {
@@ -78,7 +78,19 @@ module.exports = {
         //     }
         //   }
         // ],
-        exclude: /node_modules/
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'babel-loader'
+          },
+          {
+            loader: 'eslint-loader',
+            options: {
+              fix: false,
+              failOnError: true
+            }
+          }
+        ]
       },
       {
         test: /\.ts$/,
@@ -88,6 +100,16 @@ module.exports = {
         test: /\.scss$/,
         use: ['style-loader', 'css-loader', 'sass-loader'] // ローダーは記述の逆順にコンパイルされる
       }
+      // {
+      //   enforce: 'pre', // 同じ拡張子に対して、enforce='pre'のテストのほうが優先的に実行される
+      //   test: /\.js$/,
+      //   exclude: /node_modules/,
+      //   loader: "eslint-loader",
+      //   options: {
+      //     fix: false,
+      //     failOnError: true
+      //   }
+      // }
     ]
   },
   // インポート時に認識する拡張子
